@@ -5,7 +5,7 @@ set(PICO_TOOLCHAIN_PATH ${CMAKE_SOURCE_DIR}/toolchain)
 set(PICO_SDK_FETCH_FROM_GIT on)
 
 include(pico_sdk_import.cmake)
-project(hackatum2022)
+project(hackatum2022-mqtt)
 
 set(CMAKE_C_STANDARD 11)
 
@@ -14,13 +14,17 @@ pico_sdk_init()
 
 
 # Add executable.
-add_executable(blinky blinky.c)
+add_executable(mqtt_led mqtt_led.c)
 
-pico_set_program_name(blinky "blinky")
-pico_set_program_version(blinky "0.1")
+pico_set_program_name(mqtt_led "mqtt_led")
+pico_set_program_version(mqtt_led "0.1")
 
 # Add the standard library to the build
-target_link_libraries(blinky pico_stdlib pico_cyw43_arch_none)
+target_link_libraries(mqtt_led PRIVATE pico_stdlib pico_cyw43_arch_lwip_poll)
 
-pico_add_extra_outputs(blinky)
+#App specific stuff
+target_include_directories(mqtt_led PRIVATE ${CMAKE_SOURCE_DIR})
+target_sources(mqtt_led PRIVATE ${PICO_SDK_PATH}/lib/lwip/src/apps/mqtt/mqtt.c)
+
+pico_add_extra_outputs(mqtt_led)
 

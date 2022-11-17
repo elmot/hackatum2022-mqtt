@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="rp2040-skating-speedometer" type="com.jetbrains.cidr.embedded.customgdbserver.type" factoryName="com.jetbrains.cidr.embedded.customgdbserver.factory" PROGRAM_PARAMS=" -t -batch -L 3333:127.0.0.1:3333 flasher@192.168.19.1 openocd -f interface/raspberrypi-swd.cfg -f target/rp2040.cfg" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="hackatum2022" TARGET_NAME="mqtt_led" CONFIG_NAME="Debug" version="1" RUN_TARGET_PROJECT_NAME="hackatum2022" RUN_TARGET_NAME="mqtt_led">
+    <custom-gdb-server version="1" gdb-connect="tcp::3333" executable="C:\Program Files\PuTTY\plink.exe" warmup-ms="500" download-type="ALWAYS" reset-cmd="monitor reset init" reset-type="BOTH_TIMES">
+      <debugger kind="GDB" isBundled="true" />
+    </custom-gdb-server>
+    <method v="2">
+      <option name="CLION.COMPOUND.BUILD" enabled="true" />
+    </method>
+  </configuration>
+</component>
